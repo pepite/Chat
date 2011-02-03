@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET			/				        Chat.index
+GET         /messages               Chat.newMessages
+POST        /messages               Chat.postMessage
+
+GET         /signin                 Chat.signin
+POST        /signin                 Chat.register
+POST        /unlock                 Chat.unlock
+
+POST        /picture/add            Chat.addPicture
+
+GET         /logout                 Chat.disconnect
+GET         /lock                   Chat.lock
+
+POST         /upload                Chat.upload
+
+
+GET			/public/                staticDir:public
+GET			/data/        	        staticDir:data
+
+WEBSOCKETUP   /websocket            Event.receiveMessage
+WEBSOCKETDOWN   /websocket          Event.sendMessage

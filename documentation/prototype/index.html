@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<title>Chat room</title>
+</head>
+<body>
+<h1>You are now chatting as ${session.nick}  <a class="lock_screen" href="@{lock()}">Lock you session</a> <a href="@{disconnect()}">Leave the chat room</a></h1>
+<div class="content">
+<div class="reporter">
+	<p><em style="position:relative; top:-10px;left:-2px"><small style="color:#F8DD00;font-size: xx-small;">5 min ago</small></em><br/>He what's up?</p>
+</div>
+<div class="reporter-ico">
+	<img src="images/nicolas.jpg" alt="" />
+</div>
+<div class="interviewee">
+	<p><em style="position:relative; top:-10px;left:-2px"><small style="color:#F8DD00;font-size: xx-small;">5 min ago</small></em><br/> Well, still waiting for more attendants at the RivieraJUG. Do you have the screenshot I asked you for? </p>
+</div>
+<div class="interviewee-ico">
+	<img src="images/stephane.jpg" alt="" />
+</div>
+<div class="sent-item">
+	<p>Nicolas posted the following item 3 minutes ago:</p>
+	<img src="article-images/01.png" alt="" />
+</div>
+<div class="reporter">
+	<p><em style="position:relative; top:-10px;left:-2px"><small style="color:#F8DD00;font-size: xx-small;">2 min ago</small></em><br/>Cool, that looks ok. </p>
+</div>
+<div class="reporter-ico">
+	<img src="images/pedro.jpg" alt="" />
+</div>
+<div class="interviewee">
+	<p><em style="position:relative; top:-10px;left:-2px"><small style="color:#F8DD00;font-size: xx-small;">5 min ago</small></em><br/> Well, still waiting for more attendants at the RivieraJUG. Do you have the screenshot I asked you for? </p>
+</div>
+<div class="interviewee-ico">
+	<img src="images/stephane.jpg" alt="" />
+</div>
+</div>
+<div id="newMessage">
+	<textarea id="message" name="message"></textarea>
+    <input type="submit" id="enter" value="Send" />
+</div>
+
+</body>
+</html>

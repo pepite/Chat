@@ -1,0 +1,279 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, Arial, Sans;
+}
+
+form[name="register"], form[name="signin"] {
+    padding: 1em;
+    width: 26em;
+    background: #ddffdd;
+    background: -webkit-gradient(linear, left bottom, left top, from(#ddffdd), to(#eeffee));
+    background: -moz-linear-gradient(top left, #ddffdd, #ddffdd);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 15px 40px, #ddffdd 0 1px 1px, #ddffdd 0 -1px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 15px 40px, #ddffdd 0 1px 1px, #ddffdd 0 -1px 0px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+div#register {
+   float:left;
+   margin-top: 1em;
+   margin-left: 20px;
+}
+
+div#signin {
+  float: left;
+  margin:10em 2em 2em;
+  clear: both;
+}
+
+.left {
+    float: left;
+}
+
+h3.left {
+    margin-top: 10em;
+
+}
+
+input[type='submit'], input[type='button'] {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;    
+    font-size: 14pt;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    border: none;
+    background: #050;
+    background: -webkit-gradient(linear, left bottom, left top, from(#050), to(#090));
+    background: -moz-linear-gradient(top left, #050, #090);
+    -webkit-box-shadow: #ddffdd 0 -1px 1px, rgba(0, 0, 0, 0.5) 0 1px 1px, rgba(0, 0, 0, 0.2) 0 5px 3px;
+    -moz-box-shadow: #ddffdd 0 -1px 1px, rgba(0, 0, 0, 0.5) 0 1px 1px, rgba(0, 0, 0, 0.2) 0 5px 3px;
+    margin-bottom: 20px;
+}
+
+
+input[type='submit']:hover,, input[type='button']:hover {
+    -webkit-box-shadow: #ddffdd 0 -1px 1px, rgba(0, 0, 0, 0.8) 0 1px 1px, rgba(0, 0, 0, 0.5) 0 5px 3px;
+    -moz-box-shadow: #ddffdd 0 -1px 1px, rgba(0, 0, 0, 0.8) 0 1px 1px, rgba(0, 0, 0, 0.5) 0 5px 3px;
+    box-shadow: #ddffdd 0 -1px 1px, rgba(0, 0, 0, 0.8) 0 1px 1px, rgba(0, 0, 0, 0.5) 0 5px 3px;
+}
+
+h2 {
+    font-size: 24pt;
+    font-family:  serif;
+    text-transform: uppercase;
+     font-weight: bold;
+}
+
+div.placeholder {
+    margin-left: 1.5em;
+   
+}
+input[type="text"],input[type="password"] {
+    font-size: 24pt;
+    font-size: 24pt;
+    font-family: "Times";
+    font-weight: bold;
+    width: 11em;
+}
+
+#enter, #register_submit {
+    display: block;
+    margin: 10px 0 0 100px;
+}
+
+#register_submit {
+    margin-top: 205px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 24pt;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#signin .error {
+    background: #c00;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+/*
+                                __      _ _                   _
+                               / _|    | (_)                 | |
+ _ __ ___   __ _ _ __ ___ ___ | |_ ___ | |_  ___   _ __   ___| |_
+| '_ ` _ \ / _` | '__/ __/ _ \|  _/ _ \| | |/ _ \ | '_ \ / _ \ __|
+| | | | | | (_| | | | (_| (_) | || (_) | | | (_) || | | |  __/ |_
+|_| |_| |_|\__,_|_|  \___\___/|_| \___/|_|_|\___(_)_| |_|\___|\__|
+
+*/
+/* RESET */
+html, body, div, p, img {
+    padding: 0;
+}
+
+div, p, img {
+    padding: 0;
+    margin: 0
+}
+
+/* COMMON CLASSES */
+
+/* STYLING ELEMENTS */
+body, div.body {
+    background-color: rgb(100, 170, 240);
+    background: -webkit-gradient(linear, left top, right top, from(rgb(180, 200, 255)), to(rgb(100, 170, 240)));
+    background: -moz-linear-gradient(-180deg, rgb(180, 200, 255), rgb(100, 170, 240));
+}
+
+div.body {
+    height: 10px;
+}
+
+div.content {
+    width: 750px;
+    font-family: Georgia, serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+/* REPORTER */
+.reporter {
+    clear: both;
+    width: 450px;
+    float: right;
+    background-color: #000018;
+    color: #D8D8D8;
+    font-style: italic;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-image: url("../images/glow.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    text-align: justify;
+}
+
+.reporter p {
+    padding: 10px;
+}
+
+.reporter-ico {
+    clear: both;
+    float: right;
+    width: 100px;
+    background-image: url("../images/reporter-balloon.png");
+    background-repeat: no-repeat;
+}
+
+.reporter-ico img {
+    margin:5px -10px 5px 5px;
+    float: right;
+}
+
+/* INTERVIEWEE */
+.interviewee {
+    width: 450px;
+    clear: both;
+    background-color: #304860;
+    color: #D8D8D8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-image: url("../images/glow.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    text-align: justify;
+}
+
+.interviewee p {
+    padding: 10px;
+}
+
+.interviewee-ico {
+    width: 100px;
+    background-image: url("../images/interviewee-balloon.png");
+    background-repeat: no-repeat;
+}
+
+.interviewee-ico img {
+    margin: 5px;
+}
+
+/* SENT ITEM */
+.sent-item {
+    margin: 5px auto;
+    font-style: italic;
+    font-size: 10px;
+    padding: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 450px;
+    background-color: #AEB284;
+    text-align: center;
+    background-image: url(../images/glow.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    background: #222a39;
+    border-bottom: 3px solid #2f3745;
+    color: #ddd;
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    margin: 5px;
+}
+
+h1 a {
+    position: absolute;
+    right: 2em;
+    color: #eee;
+}
+
+h1 a:hover, h1 a.lock_screen:hover {
+    color: white;
+}
+
+h1 a.lock_screen {
+    position: absolute;
+    right: 13em;
+    color: #eee;
+}
+
+#newMessage {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+#newMessage textarea {
+    width: 100%;
+    height: 40px;
+}
+
+#send {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

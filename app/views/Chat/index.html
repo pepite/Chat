@@ -1,0 +1,132 @@
+#{extends 'main.html' /}
+#{set title:'Chat room' /}
+
+<h1>You are now chatting as ${session.nick} <a class="lock_screen" href="@{lock()}">Lock you session</a> <a
+        href="@{disconnect()}">Leave the chat room</a></h1>
+<div class="content">
+
+    #{list msgs, as:'msg'}
+    <div class="${msg.user == session.nick ? 'reporter' : 'interviewee' } ${ msg.user == 'notice' ? 'notice' : '' }">
+        <p>
+            <small>${msg.date}</small>
+            - ${msg.user} says:<br/>
+            ${msg.text}
+        </p>
+    </div>
+    <div class="${ msg.user == session.nick ? 'reporter-ico' : 'interviewee-ico' } ${msg.user == 'notice' ? 'notice-ico' : '' }">
+        <img src="/data/${msg.user}-thumb.png" alt=""/>
+    </div>
+    #{/list}
+
+    <div id="thread">
+        <script type="text/html" id="message_tmpl">
+            <div class="<%= message.user == '${session.nick}' ? 'reporter' : 'interviewee' %> <%= message.user == 'notice' ? 'notice' : '' %>">
+                <p>
+                    <small><%= message.date %></small>
+                    - <%=message.user %> says:<br/>
+                    <%= message.text.replace('\n', '<br/>') %>
+                </p>
+            </div>
+            <div class="<%= message.user == '${session.nick}' ? 'reporter-ico' : 'interviewee-ico' %> <%= message.user == 'notice' ? 'notice-ico' : '' %>">
+                <img src="/data/<%= message.user %>-thumb.png" alt=""/>
+            </div>
+        </script>
+    </div>
+</div>
+
+
+<div id="newMessage">
+    <textarea id="message" name="message"
+              onkeypress="if (event.keyCode == 13) { document.getElementById('send').click() ; return false;} else return true;"></textarea>
+    <input accesskey="s" type="button" id="send" value="Send"/>
+</div>
+<script type="text/javascript">
+
+    var socket;
+
+    function openWebSocket() {
+        var user = '${session.nick}';
+        if (window.WebSocket) {
+            // TODO: Get the right URL
+            socket = new WebSocket('ws://localhost:9000/websocket');
+            socket.onopen = function(event) {
+            };
+            socket.onclose = function(event) {
+            };
+            socket.onmessage = function(event) {
+                //$('div.content').append(event.data);
+                parse(event.data);
+            };
+
+            $('#send').click(function(e) {
+                var message = $('#message').val();
+                $('#message').val('');
+                send(user + ":" + message);
+            });
+        } else {
+            $('#send').click(function(e) {
+                var message = $('#message').val();
+                $('#message').val('');
+                $.post('@{postMessage()}', {message: message});
+            });
+            // Retrieve new messages
+            var getMessages = function() {
+                $.ajax({
+                    url: '@{newMessages()}',
+                    success: function(messages) {
+                        $(messages).each(function() {
+                            display(this);
+                        });
+                    },
+                    complete: function() {
+                        getMessages();
+                    },
+                    dataType: 'json'
+                });
+            }
+            getMessages();
+
+        }
+    }
+
+    function closeWebSocket() {
+        socket.close();
+    }
+
+    function send(message) {
+        if (!window.WebSocket) {
+            return;
+        }
+        // OPEN
+        if (socket.readyState == 1) {
+            socket.send(message);
+        }
+    }
+
+    function parse(message) {
+        // parse response: json or xml, etc
+        $('div.content').append(tmpl('message_tmpl', {message: eval('(' + message + ')') }));
+        window.scrollTo(0, document.height);
+    }
+
+
+    // Display a message
+    var display = function(message) {
+        $('div.content').append(tmpl('message_tmpl', {message: message}));
+        window.scrollTo(0, document.height);
+    }
+
+    $(document).ready(function() {
+        openWebSocket();
+        window.scrollTo(0, document.height);
+    });
+
+    $(window).resize(function() {
+        window.scrollTo(0, document.height);
+    });
+
+    $(document).unload(function() {
+        closeWebSocket();
+    });
+
+</script>

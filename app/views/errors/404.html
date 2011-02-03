@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Error' /}
+
+
+#{if play.mode.name() == 'DEV'}
+    #{404 result /}
+#{/if}
+#{else}
+    <p>
+         <h2 style="text-align:center">This page does not exists</h2>
+    </p>
+#{/else}
